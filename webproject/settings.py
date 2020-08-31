@@ -23,9 +23,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '!@&b(0mdr-bd)k(&if@s!e2te0u09p4t&u42v@vvjynub83z4#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'red01',
 ]
 
 MIDDLEWARE = [
@@ -118,3 +119,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'static_collected')
+STATICFILES_DIRS = [
+    ('css', os.path.join(STATIC_ROOT,'css')),
+    ('js', os.path.join(STATIC_ROOT,'js')),
+    ('img', os.path.join(STATIC_ROOT,'img')),
+    os.path.join(BASE_DIR,'red01/static'),
+]
